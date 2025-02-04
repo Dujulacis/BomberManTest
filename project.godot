@@ -11,11 +11,14 @@ config_version=5
 [application]
 
 config/name="BombermanTest"
+run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=800
+window/size/viewport_height=600
 window/stretch/mode="canvas_items"
 
 [input]
@@ -52,6 +55,7 @@ place_bomb={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.187746, 0.37156, 0.192007, 1)
+environment/defaults/default_clear_color=Color(0.257857, 0.362957, 0, 1)
