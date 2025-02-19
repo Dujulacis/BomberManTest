@@ -53,9 +53,18 @@ place_bomb={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="WallTile"
+2d_physics/layer_3="BrickWall"
+2d_physics/layer_4="Bomb"
+2d_physics/layer_5="Explosion"
+2d_physics/layer_6="Enemy"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.257857, 0.362957, 0, 1)
+environment/defaults/default_clear_color=Color(0, 0.588235, 0, 1)

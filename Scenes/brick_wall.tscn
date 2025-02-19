@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://65gyu54ncg5y"]
+
+[ext_resource type="Texture2D" uid="uid://cghl0k4qadngg" path="res://Assets/Sprites.png" id="1_nqhv7"]
+[ext_resource type="Script" path="res://Scripts/brick_wall.gd" id="1_okrc6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bhkw"]
+atlas = ExtResource("1_nqhv7")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n7ff"]
+atlas = ExtResource("1_nqhv7")
+region = Rect2(80, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4og0"]
+atlas = ExtResource("1_nqhv7")
+region = Rect2(96, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k2qj"]
+atlas = ExtResource("1_nqhv7")
+region = Rect2(112, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujjnk"]
+atlas = ExtResource("1_nqhv7")
+region = Rect2(128, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vygil"]
+atlas = ExtResource("1_nqhv7")
+region = Rect2(144, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm3do"]
+atlas = ExtResource("1_nqhv7")
+region = Rect2(160, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ig2dh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bhkw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4n7ff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4og0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k2qj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujjnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vygil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xm3do")
+}],
+"loop": false,
+"name": &"destroy",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k42va"]
+size = Vector2(16, 16)
+
+[node name="BrickWall" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_okrc6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ig2dh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k42va")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
